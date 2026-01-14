@@ -54,18 +54,23 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
             </CardContent>
 
             <CardFooter className="pt-4 pb-6">
-                <Button
-                    onClick={() => window.open(product.stripeLink, "_blank")}
-                    className={cn(
-                        "w-full font-semibold py-6 text-base",
-                        isPopular
-                            ? "bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25"
-                            : "bg-white/10 hover:bg-white/20 text-white"
-                    )}
-                >
-                    Seleccionar Plan
-                </Button>
-            </CardFooter>
-        </Card>
+              <Button
+  asChild
+  className={cn(
+    "w-full font-semibold py-6 text-base",
+    isPopular
+      ? "bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25"
+      : "bg-white/10 hover:bg-white/20 text-white"
+  )}
+>
+  <a
+    href={product.stripeLink}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Seleccionar Plan
+  </a>
+</Button>
+
     );
 }
