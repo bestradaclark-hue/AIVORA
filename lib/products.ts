@@ -8,10 +8,12 @@ export interface Product {
     category: string; // We can use this for the tag (e.g. "Most Popular")
     features: string[];
     target?: string;
+    stripeLink: string;
+ 
+
 }
 
 export const products: Product[] = [
-    {
         id: 'start',
         name: 'RECEPCIÓN AUTOMÁTICA',
         description: 'La solución esencial para no perder clientes.',
@@ -26,7 +28,9 @@ export const products: Product[] = [
             '✔ Tono humano personalizado',
             '✔ Derivación a humano si se requiere'
         ],
-        target: '👉 Ideal para negocios pequeños'
+        target: '👉 Ideal para negocios pequeños',
+        stripeLink: 'https://buy.stripe.com/cNidR92MS5CP66o9GQ7N602'
+
     },
     {
         id: 'pro',
@@ -43,7 +47,10 @@ export const products: Product[] = [
             '✔ Seguimiento automático',
             '✔ Reporte mensual simple'
         ],
-        target: '👉 Ideal para spas, clínicas, consultorios'
+        target: '👉 Ideal para spas, clínicas, consultorios',
+        stripeLink: 'https://buy.stripe.com/dRm3cv9bgaX98ew9GQ7N601'
+
+
     },
     {
         id: 'elite',
@@ -60,6 +67,8 @@ export const products: Product[] = [
             '🔁 Seguimiento de ventas (Re-marketing)',
             '📊 Panel de control completo'
         ],
-        target: '👉 Reemplaza a una recepcionista 24/7'
+        target: '👉 Reemplaza a una recepcionista 24/7',
+        stripeLink: 'https://buy.stripe.com/8x24gz87c7KX9iA9GQ7N600'
+
     }
 ];
