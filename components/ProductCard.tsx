@@ -55,7 +55,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
 
             <CardFooter className="pt-4 pb-6">
                 <Button
-                    onClick={() => onAddToCart?.(product)}
+                    onClick={() => window.open(product.stripeLink, "_blank")}
                     className={cn(
                         "w-full font-semibold py-6 text-base",
                         isPopular
