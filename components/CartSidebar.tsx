@@ -19,14 +19,8 @@ export function CartSidebar() {
   try {
     setIsCheckingOut(true);
 
-    const res = await fetch("/api/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items }),
-    });
+ window.location.href = https://buy.stripe.com/cNidR92MS5CP66o9GQ7N602
 
-    const { url } = await res.json();
-    window.location.href = url;
   } catch (err) {
     console.error(err);
     alert("Error al iniciar el pago");
