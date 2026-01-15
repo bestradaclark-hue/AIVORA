@@ -16,13 +16,24 @@ export function CartSidebar() {
     }, []);
 
     const handleCheckout = async () => {
-        setIsCheckingOut(true);
-        // Simulate processing delay
-        await new Promise(resolve => setTimeout(resolve, 2000));
+  try {
+    setIsCheckingOut(true);
 
-        alert("¡Sistema de Pagos listo para configurar! \n\nPara activar pagos reales, necesito las llaves de Stripe en el archivo .env.local.\n\n(Simulación completada con éxito)");
-        setIsCheckingOut(false);
-    };
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items }),
+    });
+
+    const { url } = await res.json();
+    window.location.href = url;
+  } catch (err) {
+    console.error(err);
+    alert("Error al iniciar el pago");
+    setIsCheckingOut(false);
+  }
+};
+
 
     if (!mounted) return null;
 
